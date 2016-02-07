@@ -1,25 +1,31 @@
 class Graph
   def initialize
-    @count = 0
-    @nodes = [] of Node
+    @end = new_node
+    @begin = new_node
   end
 
-  def add_string(str)
-    edges = string_to_edges(str)
+  def new_node
+    @count += 1
+    Node.new(@count)
   end
 
-  def string_parts(str : String)
+  def process_nodes(parts, nodes)
+  end
+
+  def add(str)
+    parts = string_parts(str)
+    nodes = init_nodes(str)
+    puts "nodes.inspect"
+    puts nodes.inspect
+  end
+
+  def string_parts(str)
     str.split("")
   end
 
-  def string_to_edges(str)
-    edges = string_parts(str).map { |item| Edge.new(item) }
-    puts edges.inspect
-    edges
-  end
-
-  def string_to_nodes(str)
-    @count += 1
-    nodes = string_parts(str).map { |x| Node.new(@count) }
+  def init_nodes(parts : Array)
+    parts.map do |_|
+      new_node
+    end
   end
 end

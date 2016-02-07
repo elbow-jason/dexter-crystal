@@ -1,10 +1,8 @@
 class Edge
-  def initialize(value)
-    @value = value
-    @destination
-  end
+  getter value, destination
 
-  def add_next(node)
-    @destination = node
+  def initialize(value, destination)
+    @value = value
+    @destination = destination
   end
 end
